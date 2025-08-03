@@ -208,5 +208,5 @@ __marimo__/
 
 #ptoho
 
-.png
-.jpg
+faces/user/*.jpg
+faces/user/*.png
