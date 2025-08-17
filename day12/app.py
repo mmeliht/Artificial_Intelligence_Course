@@ -66,3 +66,6 @@ def price_pred(make , model , trim , mileage , type_ ,cyliner, liter , doors , c
 
 st.title('MLOps Car Price Prediction App :red_car:')
 
+st.write('Enter Car Details to Predict the Price')
+
+make = st.selectbox('Make', df['Make'].unique())
