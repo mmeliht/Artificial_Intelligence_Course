@@ -31,5 +31,7 @@ preprocessor =  ColumnTransformer(
 model = LinearRegression()
 
 # Pipeline
+Pipeline = Pipeline(steps=[("preprocessor", preprocessor),("regressor",model)])
+
 
 
