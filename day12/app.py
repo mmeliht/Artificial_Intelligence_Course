@@ -69,6 +69,19 @@ st.title('MLOps Car Price Prediction App :red_car:')
 st.write('Enter Car Details to Predict the Price')
 
 # Selectbox 
-make = st.selectbox('Make', df['Make'].unique())
-car_model = st.selectbox('Model',df[df['Make']==make]['Model'].unique())
-car_model = st.selectbox('Model',df[df['Make']==make]['Model'].unique())
+make=st.selectbox("Make",df['Make'].unique())
+carmodel=st.selectbox("Model",df[df['Make']==make]['Model'].unique())
+trim = st.selectbox("Trim", df[df["Model"] == carmodel]["Trim"].unique())
+mileage = st.number_input('Mileage', min_value=200, max_value=60000, step=100)
+car_type = st.selectbox('Type', df['Type'].unique())
+cylinders = st.selectbox('Cylinder', df['Cylinder'].unique())
+liter = st.number_input('Liter', min_value=1, max_value=6, step=1)
+doors = st.selectbox('Doors', df['Doors'].unique())
+cruise = st.radio('Cruise', [0, 1])
+sound = st.radio('Sound', [0, 1])
+leather = st.radio('Leather', [0, 1])
+
+if st.button('Predict'):
+    predicted_price = price_pred(make, carmodel, trim, mileage, car_type, cylinders, liter, doors, cruise, sound, leather)
+    price=float(predicted_price)
+    st.success(f'The predicted price is: ${price:.2f}')
