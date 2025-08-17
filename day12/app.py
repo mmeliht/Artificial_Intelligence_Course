@@ -45,8 +45,8 @@ pred = pipeline.predict(x_test)
 rmse = mean_squared_error(y_test , pred)**0.5
 r2 = r2_score(y_test, pred)
 
-# prediction function
 
+# prediction function
 def price_pred(make , model , trim , mileage , type_ ,cyliner, liter , doors , cruise , sound , leather ):
     input_data = pd.DataFrame({
         'Make': [make],
@@ -68,4 +68,7 @@ st.title('MLOps Car Price Prediction App :red_car:')
 
 st.write('Enter Car Details to Predict the Price')
 
+# Selectbox 
 make = st.selectbox('Make', df['Make'].unique())
+car_model = st.selectbox('Model',df[df['Make']==make]['Model'].unique())
+car_model = st.selectbox('Model',df[df['Make']==make]['Model'].unique())
