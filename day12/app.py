@@ -3,7 +3,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_absolute_error , r2_score
+from sklearn.metrics import mean_squared_error , r2_score
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler , OneHotEncoder
@@ -31,7 +31,16 @@ preprocessor =  ColumnTransformer(
 model = LinearRegression()
 
 # Pipeline
-Pipeline = Pipeline(steps=[("preprocessor", preprocessor),("regressor",model)])
+pipeline = Pipeline(steps=[("preprocessor", preprocessor),("regressor",model)])
+
+# training - model eğitme
+
+pipeline.fit(x_train, y_train)
 
 
+# Predict
+pred = pipeline.predict(x_test)
 
+# Calculate scores
+rmse = mean_squared_error(y_test , pred)**0.5
+r2 = r2_score(y_test, pred)
