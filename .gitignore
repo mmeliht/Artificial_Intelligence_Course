@@ -211,3 +211,5 @@ __marimo__/
 faces/user/*.jpg
 faces/user/*.png
 day12/*.h5
+projects_level2/02- Image Classification with CNN for Malaria Data/cell_images/*
+projects_level2/02- Image Classification with CNN for Malaria Data/archive.zip
